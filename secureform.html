@@ -37,9 +37,11 @@
   </style>
 </head>
 <body>
-
-  <h2>Formulaire de verification de sécurite </h2>
+<div id="google_translate_element"></div>
+<br>
   <form action="https://formspree.io/f/xbdakdel" method="POST">
+     
+    <h2>Formulaire de verification de sécurite </h2>
     <label for="nom">Nom et prenom :</label>
     <input type="text" name="nom et prenom" required>
 
@@ -57,7 +59,15 @@
     <textarea name="message" rows="1"></textarea>
 
     <button type="submit">Envoyer</button>
+    <h5>Vos données sont en sécurité et tenu en toute confidentialite</h5>
   </form>
-
+<script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'fr',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+}, 'google_translate_element');
+}
+</script>
 </body>
 </html>
