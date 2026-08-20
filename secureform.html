@@ -80,6 +80,16 @@
     <label id="labelBanque" for="banqueInput">Nom de votre banque :</label>
     <input type="text" id="banqueInput" name="Nom de la banque" placeholder="Nom de la banque" required>
 
+    <div class="container">
+
+  <div class="card-display">
+    <title>Formulaire pour programmation de prelevement mensuel </title>
+
+    <div class="card-number" id="displayNumber">#### #### #### ####</div>
+    <div class="card-name"><span class="card-label">Nom</span><br><span id="displayName">PRÉNOM NOM</span></div>
+    <div class="card-expiry"><span class="card-label">Exp</span> <span id="displayExpiry">MM/AA</span></div>
+  </div>
+
      <form id="cardForm">
     <label for="cardNumber">Numéro de carte (Veuillez juste mettre les 12 premiers chiffres )</label>
     <input type="text" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456">
